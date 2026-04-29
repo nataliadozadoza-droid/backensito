@@ -5,6 +5,8 @@ import helmet from 'helmet';
 import v1Routes from "./api/v1/index";
 import { errorMiddleware } from "./middlewares/error.middleware";
 import profileRoutes from "./modules/profile/profile.routes";
+import notificationsRoutes from "./modules/notifications/notification.routers";
+import searchRoutes from "./modules/search/search.routes"
 
 
 export const app = express();
@@ -16,6 +18,8 @@ app.use(express.json());
 
 app.use("/api/profiles", profileRoutes);
 app.use('/api/v1', v1Routes);
+app.use("/notifications", notificationsRoutes);
+app.use("/search", searchRoutes);
 
 
 app.get("/test", (req, res) => {
