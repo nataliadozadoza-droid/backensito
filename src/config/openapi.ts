@@ -15,7 +15,7 @@ export const openApiSpec = swaggerJsdoc({
         description: "Servidor local",
       },
       {
-        url: "https://administrador-de-perfiles.onrender.com",
+        url: "https://administrador-de-perfiles.onrender.com/api/v1",
         description: "Servidor Producción",
       },
     ],
