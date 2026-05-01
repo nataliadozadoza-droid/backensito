@@ -1,21 +1,39 @@
 import swaggerJsdoc from "swagger-jsdoc";
 import path from "path";
-
+ 
 export const openApiSpec = swaggerJsdoc({
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Profile-administrator-app",
-      description: "Documentacion de la Api",
+      title: "API Projects",
       version: "1.0.0",
+      description: "Documentacion de la API",
     },
+    servers: [
+      {
+        url: "http://localhost:3000/api/v1",
+        description: "Servidor local",
+      },
+      {
+        url: "https://administrador-de-perfiles.onrender.com",
+        description: "Servidor Producción",
+      },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+          description: "Ingresa el token JWT en formato Bearer",
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
-  servers: [
-    {
-      url: "http://localhost:3000/api/v1",
-      description: "Ruta",
-    },
-  ],
-  //apis: ['./src/modules/**/*.routes.ts']
-  apis: ["./src/modules/**/*.routes.ts"],
+  apis: [path.join(__dirname, "../modules/**/*.routes.{ts,js}")],
 });

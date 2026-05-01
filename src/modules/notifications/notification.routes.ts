@@ -68,9 +68,9 @@ router.patch("/:id/read", verifyToken, readNotification);
  *         example: 64f123abc
  *     responses:
  *       200:
- *         description: Notificación marcada como leída
+ *         description: Notificacion marcada como leida
  *       500:
- *         description: Error al marcar como leída
+ *         description: Error al marcar como leida
  */
 router.delete("/:id", verifyToken, removeNotification);
 
